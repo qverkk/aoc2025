@@ -2,7 +2,8 @@ package aoc.core
 
 object PuzzleLibrary {
     private val registrations: List<PuzzleRegistration> = listOf(
-        PuzzleRegistration(PuzzleId(2025, 1)) { aoc.y2025.Day01() }
+        PuzzleRegistration(PuzzleId(2025, 1)) { aoc.y2025.Day01() },
+        PuzzleRegistration(PuzzleId(2025, 2)) { aoc.y2025.Day02() },
     )
 
     fun availableIds(): List<PuzzleId> = registrations.map { it.id }.sorted()

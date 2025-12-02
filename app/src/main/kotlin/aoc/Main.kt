@@ -7,7 +7,7 @@ import aoc.core.PuzzleLibrary
 
 fun main(args: Array<String>) {
     val year = args.getOrNull(0)?.toIntOrNull() ?: 2025
-    val day = args.getOrNull(1)?.toIntOrNull() ?: 1
+    val day = args.getOrNull(1)?.toIntOrNull() ?: 2
     val flavor = InputFlavor.fromOption(args.getOrNull(2))
 
     val id = PuzzleId(year, day)
