@@ -45,7 +45,6 @@ class Day02 : Puzzle {
                                 || allMatch(it.toString())
                                 || allDoubles(it.toString())
                     }
-                    .also { println("Sum $it") }
                     .sum()
             }
             .toString()

@@ -8,6 +8,7 @@ object PuzzleLibrary {
         PuzzleRegistration(PuzzleId(2025, 4)) { aoc.y2025.Day04() },
         PuzzleRegistration(PuzzleId(2025, 5)) { aoc.y2025.Day05() },
         PuzzleRegistration(PuzzleId(2025, 6)) { aoc.y2025.Day06() },
+        PuzzleRegistration(PuzzleId(2025, 7)) { aoc.y2025.Day07() },
     )
 
     fun availableIds(): List<PuzzleId> = registrations.map { it.id }.sorted()
