@@ -1,10 +1,6 @@
 package aoc.y2025
 
-import aoc.core.Map2D
-import aoc.core.Puzzle
-import aoc.core.PuzzleId
-import aoc.core.SampleExpectations
-import aoc.core.toMap2D
+import aoc.core.*
 
 class Day07 : Puzzle {
     override val id = PuzzleId(2025, 7)
@@ -15,11 +11,30 @@ class Day07 : Puzzle {
     )
 
     override fun part1(input: List<String>): String {
-        val map = Map2D(input.map { it.split(" ").filter { it.isNotBlank() } })
-        map.allCoordinates().forEach {
-            println(it)
+        val map = input.map { it.toList() }.let(::Map2D)
+        val queue = ArrayDeque<Position>().apply {
+            add(map.find('S')!! + Direction.SOUTH.asPosition())
         }
-        return ""
+
+        return generateSequence { queue.removeFirstOrNull() }
+            .count { pos ->
+                when (map[pos]) {
+                    '.' -> {
+                        map.replace(pos, '|')
+                        queue.add(pos + Direction.SOUTH.asPosition())
+                        false
+                    }
+
+                    '^' -> {
+                        queue.add(pos + Direction.WEST.asPosition())
+                        queue.add(pos + Direction.EAST.asPosition())
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+            .toString()
     }
 
     override fun part2(input: List<String>): String {
